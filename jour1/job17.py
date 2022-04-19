@@ -1,14 +1,16 @@
-min = 0
-max = 100
-# while min < max:
-#     print(min)
-#     min = min + 1
-#     if min %3 == 0:
-#        print('Fizz')
-#     if min %5 == 0:
-#        print('Buzz')
+for i in range(1,101):
 
-switch(min < max)
-{
-    
-}
+    if i % 3 == 0 and i % 5 == 0:
+
+        print('FizzBuzz')
+
+    elif i % 3 == 0:
+
+        print('Fizz')
+
+    elif i % 5 == 0:
+
+        print('Buzz')
+
+    else:
+        print(i)
