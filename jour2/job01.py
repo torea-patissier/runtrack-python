@@ -1,46 +1,36 @@
-#Importer Personne
 from job0 import Personne
 
-#Créer une classe “Auteur” héritant de la classe “Personne” recevant un nom et un prénom en paramètre de construction.
-class Auteur(Personne):
+class Auteur(Personne): 
 
-    #La classe Auteur devra posséder une collection de livres nommée "œuvre" en attribut ainsi
-    def __init__(self, nom, prenom, oeuvre):
-        Personne.__init__(self, nom, prenom)
-        self.oeuvre = oeuvre
-    
-    @property
-    def oeuvre(self):
-        return self.oeuvre
+    def __init__(self, nom, prenom):
+        super().__init__(nom, prenom)
+        self.oeuvre = []
 
-    @oeuvre.setter
-    def oeuvre(self, oeuvre):
-        self._oeuvre = oeuvre
-    
-    #  qu’une méthode “listerOeuvre” affichant dans le terminal la liste des livres écrits par l’auteur.
+    # et générer une instance de la classe livre avec ce titre.
+    def ecrireUnLivre(self,titre):
+        self.oeuvre.append(titre)
+        titre = Livre(titre, Auteur)
+
+    # Une méthode “listerOeuvre” affichant dans le terminal la liste des livres écrits par l’auteur
+    # Ajouter ce nouveau livre à l’oeuvre de l’auteur
     def listerOeuvre(self):
-        print('Afficher la liste des livres écrits par l\'auteur')
+        print(self.oeuvre)
 
-    #Ajouter à la classe Auteur une méthode “ecrireUnLivre” prenant en paramètre un titre de livre à écrire
-    #  et générer une instance de la classe Livre avec ce titre. Ajouter ce nouveau livre à l’oeuvre de l’auteur
-    def ecrireUnLivre(self, titre):
-        print(titre)
+class Livre():
 
-#Créer une classe “Livre” avec comme attribut un “titre” qu’elle reçoit en paramètre à la construction et une référence vers une classe “Auteur”.
-class Livre(Auteur):
-
-    def __init__(self,nom,prenom,oeuvre,titre):
-        Auteur.__init__(self,nom,prenom,oeuvre)
+    def __init__(self, titre, Auteur):
+        self.auteur = Auteur
         self.titre = titre
-
-    @property
-    def titre(self):
-        return self.titre
     
-    @titre.setter
-    def titre(self, titre):
-        self._titre = titre 
-
-    # Ajouter une méthode “print” permettant d’afficher dans le terminal le titre du livre.
     def print(self):
-        print('Titre du livre : ' + self.titre)
+        print(self.titre)
+    # Ajouter une méthode “print” permettant d’afficher dans le terminal le titre du livre
+
+#Résultat
+a1 = Auteur('Jean','Lasalle')
+a1.ecrireUnLivre('La bergerie')
+a1.ecrireUnLivre('La bergerie 2')
+a1.ecrireUnLivre('La bergerie 3')
+
+livre = Livre('test' , a1)
+print(a1.oeuvre)
