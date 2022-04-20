@@ -24,8 +24,8 @@ class Personne:
     def sePresenter(self):
         print(self.nom + ' ' + self.prenom)
 
-p1 = Personne('Toréa','Patissier')
-p1.sePresenter()
+# p1 = Personne('Toréa','Patissier')
+# p1.sePresenter()
 
-p2 = Personne('Abdul','Kamara')
-p2.sePresenter()
+# p2 = Personne('Abdul','Kamara')
+# p2.sePresenter()
